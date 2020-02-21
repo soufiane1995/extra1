@@ -1,6 +1,5 @@
 package notas;
 
-package notas;
 
 public class Trabajos extends NotasAlumnos {
 
