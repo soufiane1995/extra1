@@ -47,6 +47,7 @@ public class Trabajos extends NotasAlumnos {
 
 	public static void main(String[] args) {
 		entrega();
+		System.out.println();
 	}
 }
 
