@@ -14,14 +14,13 @@ public class NotasAlumnos {
 	public static Scanner stdin = new Scanner(System.in);
 	public static float prom;
 	public static float[] notas;
-	
-    public static int Menu ()
-    {
+	//Menu principal del programa
+    public static int Menu (){
         int opcion;
         do {
-        	System.out.println("\n1. AÃ±adir nota trabajos.");
-            System.out.println ("2. AÃ±adir notas examenes clasicos.");
-            System.out.println ("3. AÃ±adir notas examenes test.");
+        	System.out.println("\n1. Añadir nota trabajos.");
+            System.out.println ("2. Añadir notas examenes clasicos.");
+            System.out.println ("3. Añadir notas examenes test.");
             System.out.println ("4. Calcular promedio.");
             System.out.println ("5. Get out.");
             System.out.print ("Introduce opcion (1..4) --> ");
@@ -33,7 +32,7 @@ public class NotasAlumnos {
         }while (opcion < 1 || opcion > 5);
         return opcion;
     }
-
+    //Main donde se ejecuta cada funcion del menu
     public static void main(String[] args) {
         // TODO code application logic here
     	NotasAlumnos notas = new NotasAlumnos();
@@ -57,7 +56,7 @@ public class NotasAlumnos {
     }
 		
 
-	public static boolean nota_valeda(float nota) {
+	public static boolean nota_valida(float nota) {
 		return (nota <= 10 && nota >= 0) ? false : true;
 	}
 

@@ -5,12 +5,12 @@ public class Trabajos extends NotasAlumnos {
 
 	private static boolean entregado = false;
 	private static float suma, nota ;
-
+	//Pedimos al usuario que indique si los trabajos han sido entregados
 	public static void entrega() {
-		System.out.println("Â¿Han sido entregados todos los trabajos?");
+		System.out.println("¿Han sido entregados todos los trabajos?");
 		int opcion = 0;
 		do {
-			System.out.println("\n1.SÃ­.");
+			System.out.println("\n1.Sí.");
 			System.out.println("2. No.");
 			System.out.print("\n --> ");
 			opcion = stdin.nextInt();
@@ -26,7 +26,7 @@ public class Trabajos extends NotasAlumnos {
 		} while (opcion < 1 || opcion > 2);
 		trabajoEntregado();
 	}
-
+	//Se ejecuta este codigo si han sido entregados
 	public static void trabajoEntregado() {
 			
 		if (entregado) {
@@ -35,11 +35,12 @@ public class Trabajos extends NotasAlumnos {
 				nota = stdin.nextInt();
 				suma += nota;
 			}
+			//Si no han sido entregados este codigo
 		} else {
 			System.out.println("NOTA FINAL: 3. \n Directo a Julio.");
 		}
 	}
-	
+	//Calcula la nota media de los trabajos
 	public static void notaMediaTrabajos() {
 		float notaMedia = 0;
 		notaMedia = suma/3;

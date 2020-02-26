@@ -16,19 +16,19 @@ public class ExamenClasico {
 	public static void notasExamenClasico() {
 		System.out.println("		Exámenes clasicos");
 		for (int i = 0; i < 3; i++) {
-			// pedir la nota al usuario.
+			// Pedir la nota al usuario.
 			System.out.print("Ingrese la nota del exámen " + (i + 1) + " : ");
 			notas[i] = stdin.nextFloat();
 
-			// mensaje de error. si la nota introducida es valida.
-			if (nota_valeda(notas[i])) {
+			// Mensaje de error. Si la nota introducida no es valida
+			if (nota_valida(notas[i])) {
 				System.err.println("\n			Error!!\n	Ingrese una nota válida (del 1 al 10)\n");
 				--i;
 			}
 		}
 	}
 
-	// Clcular la nota media.
+	// Calcular la nota media.
 	public static float mediaExamenClasico() {
 		float nota_examen_clasico = 0;
 		nota_examen_clasico = ((notas[1] + notas[2]) * 20 + notas[0] * 10) / 100;
@@ -36,8 +36,8 @@ public class ExamenClasico {
 		return nota_examen_clasico;
 	}
 
-	// valicar la nota, Comprovar si la nota esta entre 0 y 10.
-	public static boolean nota_valeda(float nota) {
+	//Validar la nota, Comprobar si la nota esta entre 0 y 10.
+	public static boolean nota_valida(float nota) {
 		return (nota <= 10 && nota >= 0) ? false : true;
 	}
 }
