@@ -7,37 +7,46 @@
  */
 package notas;
 
-import java.util.Scanner;
+/**
+ * @author Mati
+ *
+ */
+public class ExamenClasico extends Alumno {
+	
+	public static int i = 0;
+	public static double nota[];
 
-public class ExamenClasico {
-	public static float[] notas;
-	public static Scanner stdin = new Scanner(System.in);
+	public static void pedirNotasClasico() {
 
-	public static void notasExamenClasico() {
-		System.out.println("		Exámenes clasicos");
-		for (int i = 0; i < 3; i++) {
-			// Pedir la nota al usuario.
-			System.out.print("Ingrese la nota del exámen " + (i + 1) + " : ");
-			notas[i] = stdin.nextFloat();
+		System.out.println("		Examenes clasicos");
 
-			// Mensaje de error. Si la nota introducida no es valida
-			if (nota_valida(notas[i])) {
-				System.err.println("\n			Error!!\n	Ingrese una nota válida (del 1 al 10)\n");
+		nota = new double[4];
+		do {
+			System.out.print("Ingrese la nota del examen " + (i+1) + " --> ");
+			nota[i] = stdin.nextDouble();
+
+			// Mensaje de error. Si la nota introducida no es valida.
+			if (nota_valida(nota[i])) {
+				System.err.println("\n			Error!!\n	Ingrese una nota valida (del 1 al 10)\n");
 				--i;
 			}
-		}
+			++i;
+		} while (nota_valida(nota[i]) || i <= 2);
+
+	}
+	//Calcula la nota media de los examenes clasicos
+
+	public static double calcularNotaMedia() {
+		pedirNotasClasico();
+		double listaAlumnos = (nota[0] + nota[1] + nota[2]) / 3;
+
+		System.out.println("\nNota del examen Clasico: " + Math.rint(listaAlumnos * 100) / 100);
+		return listaAlumnos;
+
 	}
 
-	// Calcular la nota media.
-	public static float mediaExamenClasico() {
-		float nota_examen_clasico = 0;
-		nota_examen_clasico = ((notas[1] + notas[2]) * 20 + notas[0] * 10) / 100;
-		// (notas[0] * 10 / 100) + (notas[1] * 20 / 100) + (notas[2] * 20 / 100);
-		return nota_examen_clasico;
-	}
-
-	//Validar la nota, Comprobar si la nota esta entre 0 y 10.
-	public static boolean nota_valida(float nota) {
+    public static boolean nota_valida(Double nota) {
 		return (nota <= 10 && nota >= 0) ? false : true;
 	}
+
 }
